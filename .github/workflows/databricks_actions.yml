@@ -14,13 +14,12 @@ on:
 jobs:
   # This workflow contains a single job called "UpdateDatabricks"
   UpdateDatabricks:
-    # The type of runner that the job will run on
+    # agent to run pipeline on
     runs-on: ubuntu-latest
     
     env:
       working-directory: './e2e_samples/parking_sensors/src/ddo_transform'
       python-version: 3.7
-    # 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,13 +32,17 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     # Runs a single command using the runners shell
- #   - name: Run a one-line script
- #     run: echo Hello, databricks poc!
- #
-#   
-#    - name: configure databricks
-#      run: databricks configure --token
-#      env:
-#        DATABRICKS_HOST: "https://adb-6584628899500878.18.azuredatabricks.net/"
-#        DATABRICKS_TOKEN: "dapi76664afd36fb133659861ec331e405dc"
+    - name: Run a one-line script
+      run: echo Hello, databricks poc!
+    
+    - name: Install depedencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install databricks-cli
+    
+    - name: Configure Databricks
+      run: databricks configure --token
+      env:
+        DATABRICKS_HOST: "https://adb-6584628899500878.18.azuredatabricks.net/"
+        DATABRICKS_TOKEN: "dapi76664afd36fb133659861ec331e405dc"
 
