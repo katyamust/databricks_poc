@@ -17,14 +17,13 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    ########
-      jobs:
+    # 
   build:
     runs-on: ubuntu-latest
     env:
       working-directory: './e2e_samples/parking_sensors/src/ddo_transform'
       python-version: 3.7
-    ########
+    # 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
