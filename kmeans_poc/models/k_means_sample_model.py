@@ -16,15 +16,16 @@ class KMeansModel(BaseModel):
 
     def __init__(self, model_name='KMeans',
                  preprocessor=EmptyProcessor(),
-                 postprocessor=EmptyProcessor()
-                 ):
+                 postprocessor=EmptyProcessor(),
+                 n_clusters=2):
         """
         :param model_name: name of model
         :param preprocessor: TextPreprocessor object for text data in this example
         :param postprocessor: TextPostprocessor object for text data in this example
         :nclusters: predefined number of clusters
         """
-        self.k_means = KMeans(n_clusters=2)
+        self.n_clusters = n_clusters
+        self.k_means = KMeans(self.n_clusters)
 
         super().__init__(model_name=model_name,
                          preprocessor=preprocessor,
