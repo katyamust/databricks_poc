@@ -4,6 +4,8 @@ from time import time
 from .evaluation_metrics import EvaluationMetrics
 from .step_evaluation_metrics import StepEvaluationMetrics
 from .evaluator import Evaluator
+from .k_means_sample_eval_metrics import KMeansSampleEvaluationMetrics
+from . k_means_sample_evaluator import KMeansSampleEvaluator
 
 
 class TimeTook(object):
@@ -27,4 +29,4 @@ class TimeTook(object):
         logging.info(f"Time took for {self.description}: {self.end - self.start}")
 
 
-__all__ = ["EvaluationMetrics", "StepEvaluationMetrics", "Evaluator", "TimeTook"]
+__all__ = ["EvaluationMetrics", "StepEvaluationMetrics", "Evaluator", "TimeTook", "KMeansSampleEvaluationMetrics", "KMeansSampleEvaluator"]
