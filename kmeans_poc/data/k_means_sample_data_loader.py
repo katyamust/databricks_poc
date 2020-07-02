@@ -14,5 +14,5 @@ class KMeansSampleDataLoader(DataLoader):
     def get_dataset(self) -> pd.DataFrame :
         file_path = self.data_params["file"]
         spark = self.data_params["spark_session"]
-        df = spark.read.format("csv").load(file_path, header='true')
+        df = spark.read.format("csv").option("inferSchema", "true").load(file_path, header='true')
         return df.toPandas()
